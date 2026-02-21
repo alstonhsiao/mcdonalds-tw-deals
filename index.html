@@ -408,6 +408,170 @@
             color: #999;
         }
         .empty-state .emoji { font-size: 3rem; margin-bottom: 12px; }
+
+        /* ===== Credit Card Tab ===== */
+        .cc-best-banner {
+            background: linear-gradient(135deg, #1565C0, #0D47A1);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .cc-best-banner h2 { font-size: 1.5rem; margin-bottom: 6px; color: #fff; }
+        .cc-best-banner .cc-best-card-name { font-size: 1.8rem; font-weight: 800; color: var(--mcd-yellow); margin: 8px 0; }
+        .cc-best-banner .cc-best-desc { opacity: 0.9; font-size: 0.95rem; }
+        .cc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+        .cc-card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s;
+            border: 2px solid transparent;
+        }
+        .cc-card:hover { transform: translateY(-3px); }
+        .cc-card.cc-top { border-color: var(--mcd-yellow); }
+        .cc-card-header {
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .cc-card-header .cc-bank-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .cc-card-body { padding: 4px 18px 16px; }
+        .cc-card-body .cc-rate { font-size: 1.3rem; font-weight: 800; color: var(--mcd-green); margin-bottom: 6px; }
+        .cc-card-body ul { padding-left: 18px; font-size: 0.85rem; color: #555; margin-bottom: 8px; }
+        .cc-card-body ul li { margin-bottom: 3px; }
+        .cc-card-body .cc-condition { font-size: 0.8rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 8px; }
+        .cc-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .cc-tag-best { background: #E8F5E9; color: var(--mcd-green); }
+        .cc-tag-good { background: #FFF8E1; color: #F57F17; }
+        .cc-tag-limited { background: #FFEBEE; color: var(--mcd-red); }
+        .cc-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .cc-filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .cc-filter-btn:hover, .cc-filter-btn.active {
+            border-color: #1565C0;
+            color: #1565C0;
+            background: #E3F2FD;
+        }
+
+        /* ===== Quick Pick "I want to eat" ===== */
+        .quick-pick-search {
+            width: 100%;
+            padding: 16px 20px;
+            border: 3px solid var(--mcd-yellow);
+            border-radius: 14px;
+            font-size: 1.15rem;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 12px;
+        }
+        .quick-pick-search:focus { border-color: var(--mcd-red); }
+        .quick-pick-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .quick-tag {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #eee;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .quick-tag:hover { border-color: var(--mcd-yellow); background: #FFFBE6; }
+        .quick-tag.selected { border-color: var(--mcd-red); background: #FFF5F5; color: var(--mcd-red); }
+        .quick-tag .qtag-price { font-size: 0.8rem; color: #999; margin-left: 4px; }
+        .quick-tag.selected .qtag-price { color: var(--mcd-red); }
+        .quick-selected-summary {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            min-height: 56px;
+        }
+        .quick-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: var(--mcd-red);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .quick-chip .chip-remove {
+            cursor: pointer;
+            opacity: 0.8;
+            font-size: 1.1rem;
+            margin-left: 2px;
+        }
+        .quick-chip .chip-remove:hover { opacity: 1; }
+        .quick-popular {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .popular-btn {
+            padding: 10px 18px;
+            border-radius: 12px;
+            border: 2px dashed var(--mcd-yellow);
+            background: #FFFBE6;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .popular-btn:hover { border-style: solid; background: var(--mcd-yellow); color: var(--mcd-dark); }
     </style>
 </head>
 <body>
@@ -422,6 +586,8 @@
     <button class="tab-btn" onclick="switchTab('promos')">🏷️ 優惠方案</button>
     <button class="tab-btn" onclick="switchTab('compare')">📊 套餐比較</button>
     <button class="tab-btn" onclick="switchTab('optimizer')">🧮 最佳方案</button>
+    <button class="tab-btn" onclick="switchTab('creditcard')">💳 信用卡優惠</button>
+    <button class="tab-btn" onclick="switchTab('quickpick')">🍽️ 我想吃</button>
 </div>
 
 <div class="container">
@@ -440,6 +606,7 @@
                             <th>單點價</th>
                             <th>套餐價</th>
                             <th>套餐省</th>
+                            <th>🔥 熱量</th>
                             <th>備註</th>
                         </tr>
                     </thead>
@@ -497,6 +664,68 @@
     </div>
 </div>
 
+    <!-- ========== TAB 5: Credit Card ========== -->
+    <div id="tab-creditcard" class="tab-content">
+        <div class="section-title">💳 麥當勞刷卡攻略 — 今天該刷哪張卡？</div>
+        <div id="ccBestBanner" class="cc-best-banner">
+            <div>⏳ 載入中...</div>
+        </div>
+        <div class="cc-filter-bar" id="ccFilterBar"></div>
+        <div class="cc-grid" id="ccGrid"></div>
+        <div class="card" style="margin-top:20px;">
+            <h2>💡 刷卡小提醒</h2>
+            <ul style="padding-left:18px;font-size:0.9rem;color:#555;line-height:1.8;">
+                <li>各銀行優惠額度有限，建議結帳前先確認是否額滿</li>
+                <li>部分優惠需事先登錄才能享有回饋</li>
+                <li>行動支付(Apple Pay / Google Pay / Samsung Pay)有時會有額外加碼</li>
+                <li>外送平台(UberEats/foodpanda)刷卡回饋可能與門市不同</li>
+                <li>優惠內容隨時可能變動，請以各銀行官網公告為準</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========== TAB 6: Quick Pick ========== -->
+    <div id="tab-quickpick" class="tab-content">
+        <div class="section-title">🍽️ 我想吃... — 快速找出最划算組合</div>
+        <p style="margin-bottom:12px;color:#666;">直接輸入或點選你想吃的品項，系統立刻幫你算出最省錢的點法！</p>
+
+        <input type="text" class="quick-pick-search" id="quickPickSearch" placeholder="🔍 輸入你想吃的... 例如：大麥克、薯條、可樂" oninput="filterQuickPick()">
+
+        <div class="card">
+            <h2>⚡ 熱門組合 — 一鍵選取</h2>
+            <div class="quick-popular" id="quickPopular"></div>
+        </div>
+
+        <div class="quick-selected-summary" id="quickSelectedSummary">
+            <span style="color:#999;">👆 點選下方品項，或上方搜尋</span>
+        </div>
+
+        <div class="card">
+            <h2>🍔 主餐</h2>
+            <div class="quick-pick-tags" id="qpMains"></div>
+        </div>
+        <div class="card">
+            <h2>🍟 配餐</h2>
+            <div class="quick-pick-tags" id="qpSides"></div>
+        </div>
+        <div class="card">
+            <h2>🥤 飲料</h2>
+            <div class="quick-pick-tags" id="qpDrinks"></div>
+        </div>
+        <div class="card">
+            <h2>🍰 甜點</h2>
+            <div class="quick-pick-tags" id="qpDesserts"></div>
+        </div>
+
+        <button class="calculate-btn" onclick="calculateQuickPick()" style="background:linear-gradient(135deg, #F9A825, #FF8F00);">
+            🍽️ 幫我算最划算的吃法！
+        </button>
+
+        <div id="quickPickResult"></div>
+    </div>
+
+</div>
+
 <div class="disclaimer">
     ⚠️ 價格資料僅供參考，實際價格以台灣麥當勞門市公告為準。<br>
     價格可能因地區、時段有所不同。資料更新時間：2025年2月 (根據公開資訊整理)<br>
@@ -510,80 +739,80 @@
 const menuData = {
     mains: [
         // === 經典牛肉 ===
-        { id: 'm01', name: '大麥克', category: '經典牛肉', single: 75, combo: 135, desc: '雙層牛肉、特製醬', hot: true },
-        { id: 'm02', name: '雙層牛肉吉事堡', category: '經典牛肉', single: 62, combo: 119, desc: '雙層牛肉+起司' },
-        { id: 'm03', name: '吉事漢堡', category: '經典牛肉', single: 42, combo: 99, desc: '經典單層牛肉堡' },
-        { id: 'm04', name: '麥克雙牛堡', category: '經典牛肉', single: 89, combo: 149, desc: '雙層厚牛肉' },
-        { id: 'm05', name: '大麥克BLT', category: '經典牛肉', single: 89, combo: 149, desc: '大麥克+培根生菜番茄', hot: true },
-        { id: 'm06', name: '安格斯黑牛堡', category: '安格斯', single: 109, combo: 169, desc: '100%安格斯黑牛肉' },
-        { id: 'm07', name: '蕈菇安格斯黑牛堡', category: '安格斯', single: 119, combo: 179, desc: '蕈菇醬+安格斯牛肉' },
-        { id: 'm08', name: '培根安格斯黑牛堡', category: '安格斯', single: 119, combo: 179, desc: '培根+安格斯牛肉' },
+        { id: 'm01', name: '大麥克', category: '經典牛肉', single: 75, combo: 135, cal: 550, desc: '雙層牛肉、特製醬', hot: true },
+        { id: 'm02', name: '雙層牛肉吉事堡', category: '經典牛肉', single: 62, combo: 119, cal: 450, desc: '雙層牛肉+起司' },
+        { id: 'm03', name: '吉事漢堡', category: '經典牛肉', single: 42, combo: 99, cal: 301, desc: '經典單層牛肉堡' },
+        { id: 'm04', name: '麥克雙牛堡', category: '經典牛肉', single: 89, combo: 149, cal: 590, desc: '雙層厚牛肉' },
+        { id: 'm05', name: '大麥克BLT', category: '經典牛肉', single: 89, combo: 149, cal: 610, desc: '大麥克+培根生菜番茄', hot: true },
+        { id: 'm06', name: '安格斯黑牛堡', category: '安格斯', single: 109, combo: 169, cal: 620, desc: '100%安格斯黑牛肉' },
+        { id: 'm07', name: '蕈菇安格斯黑牛堡', category: '安格斯', single: 119, combo: 179, cal: 650, desc: '蕈菇醬+安格斯牛肉' },
+        { id: 'm08', name: '培根安格斯黑牛堡', category: '安格斯', single: 119, combo: 179, cal: 670, desc: '培根+安格斯牛肉' },
         // === 雞肉 ===
-        { id: 'm10', name: '麥香雞', category: '超值雞肉', single: 49, combo: 99, desc: '經典雞肉堡', hot: true },
-        { id: 'm11', name: '勁辣雞腿堡', category: '雞肉堡', single: 82, combo: 142, desc: '辣味雞腿排' },
-        { id: 'm12', name: '嫩煎雞腿堡', category: '雞肉堡', single: 82, combo: 142, desc: '嫩煎雞腿排' },
-        { id: 'm13', name: 'BLT辣脆雞腿堡', category: '雞肉堡', single: 89, combo: 149, desc: '辣脆雞腿+培根' },
-        { id: 'm14', name: 'BLT嫩煎雞腿堡', category: '雞肉堡', single: 89, combo: 149, desc: '嫩煎雞腿+培根' },
-        { id: 'm15', name: '麥克雞塊(6塊)', category: '雞塊', single: 69, combo: 129, desc: '6塊麥克雞塊' },
-        { id: 'm16', name: '麥克雞塊(10塊)', category: '雞塊', single: 109, combo: 169, desc: '10塊麥克雞塊' },
-        { id: 'm17', name: '麥脆雞腿(2塊)', category: '麥脆雞', single: 79, combo: 139, desc: '原味炸雞腿' },
-        { id: 'm18', name: '勁辣香雞翅(2塊)', category: '麥脆雞', single: 62, combo: 119, desc: '辣味雞翅' },
-        { id: 'm19', name: '麥脆雞翅(2塊)', category: '麥脆雞', single: 62, combo: 119, desc: '原味雞翅' },
+        { id: 'm10', name: '麥香雞', category: '超值雞肉', single: 49, combo: 99, cal: 400, desc: '經典雞肉堡', hot: true },
+        { id: 'm11', name: '勁辣雞腿堡', category: '雞肉堡', single: 82, combo: 142, cal: 510, desc: '辣味雞腿排' },
+        { id: 'm12', name: '嫩煎雞腿堡', category: '雞肉堡', single: 82, combo: 142, cal: 490, desc: '嫩煎雞腿排' },
+        { id: 'm13', name: 'BLT辣脆雞腿堡', category: '雞肉堡', single: 89, combo: 149, cal: 570, desc: '辣脆雞腿+培根' },
+        { id: 'm14', name: 'BLT嫩煎雞腿堡', category: '雞肉堡', single: 89, combo: 149, cal: 550, desc: '嫩煎雞腿+培根' },
+        { id: 'm15', name: '麥克雞塊(6塊)', category: '雞塊', single: 69, combo: 129, cal: 280, desc: '6塊麥克雞塊' },
+        { id: 'm16', name: '麥克雞塊(10塊)', category: '雞塊', single: 109, combo: 169, cal: 467, desc: '10塊麥克雞塊' },
+        { id: 'm17', name: '麥脆雞腿(2塊)', category: '麥脆雞', single: 79, combo: 139, cal: 420, desc: '原味炸雞腿' },
+        { id: 'm18', name: '勁辣香雞翅(2塊)', category: '麥脆雞', single: 62, combo: 119, cal: 290, desc: '辣味雞翅' },
+        { id: 'm19', name: '麥脆雞翅(2塊)', category: '麥脆雞', single: 62, combo: 119, cal: 270, desc: '原味雞翅' },
         // === 魚 ===
-        { id: 'm20', name: '麥香魚', category: '海鮮', single: 62, combo: 119, desc: '鱈魚排+塔塔醬' },
+        { id: 'm20', name: '麥香魚', category: '海鮮', single: 62, combo: 119, cal: 390, desc: '鱈魚排+塔塔醬' },
         // === 豬肉 ===
-        { id: 'm21', name: '豬肉滿福堡', category: '超值早餐', single: 52, combo: 99, desc: '豬肉+蛋(早餐)' },
-        { id: 'm22', name: '豬肉滿福堡加蛋', category: '超值早餐', single: 62, combo: 109, desc: '豬肉+蛋+起司(早餐)' },
-        { id: 'm23', name: '滿福堡', category: '超值早餐', single: 42, combo: 89, desc: '起司+蛋(早餐)' },
+        { id: 'm21', name: '豬肉滿福堡', category: '超值早餐', single: 52, combo: 99, cal: 370, desc: '豬肉+蛋(早餐)' },
+        { id: 'm22', name: '豬肉滿福堡加蛋', category: '超值早餐', single: 62, combo: 109, cal: 450, desc: '豬肉+蛋+起司(早餐)' },
+        { id: 'm23', name: '滿福堡', category: '超值早餐', single: 42, combo: 89, cal: 290, desc: '起司+蛋(早餐)' },
     ],
     sides: [
-        { id: 's01', name: '小薯條', category: '薯條', price: 33, size: 'S' },
-        { id: 's02', name: '中薯條', category: '薯條', price: 48, size: 'M', comboDefault: true },
-        { id: 's03', name: '大薯條', category: '薯條', price: 63, size: 'L' },
-        { id: 's04', name: '薯餅', category: '點心', price: 32 },
-        { id: 's05', name: '麥克雞塊(4塊)', category: '點心', price: 49 },
-        { id: 's06', name: '勁辣香雞翅(2塊)', category: '點心', price: 62 },
-        { id: 's07', name: '蘋果片', category: '輕食', price: 25 },
-        { id: 's08', name: '玉米杯', category: '配餐', price: 39 },
-        { id: 's09', name: '沙拉-凱薩', category: '沙拉', price: 79 },
-        { id: 's10', name: '薯條買一送一(優惠)', category: '薯條', price: 63, note: '大薯買一送一時' },
+        { id: 's01', name: '小薯條', category: '薯條', price: 33, cal: 230, size: 'S' },
+        { id: 's02', name: '中薯條', category: '薯條', price: 48, cal: 340, size: 'M', comboDefault: true },
+        { id: 's03', name: '大薯條', category: '薯條', price: 63, cal: 490, size: 'L' },
+        { id: 's04', name: '薯餅', category: '點心', price: 32, cal: 150 },
+        { id: 's05', name: '麥克雞塊(4塊)', category: '點心', price: 49, cal: 186 },
+        { id: 's06', name: '勁辣香雞翅(2塊)', category: '點心', price: 62, cal: 290 },
+        { id: 's07', name: '蘋果片', category: '輕食', price: 25, cal: 15 },
+        { id: 's08', name: '玉米杯', category: '配餐', price: 39, cal: 90 },
+        { id: 's09', name: '沙拉-凱薩', category: '沙拉', price: 79, cal: 120 },
+        { id: 's10', name: '薯條買一送一(優惠)', category: '薯條', price: 63, cal: 490, note: '大薯買一送一時' },
     ],
     drinks: [
-        { id: 'd01', name: '可口可樂(小)', category: '碳酸飲料', price: 25, size: 'S' },
-        { id: 'd02', name: '可口可樂(中)', category: '碳酸飲料', price: 35, size: 'M', comboDefault: true },
-        { id: 'd03', name: '可口可樂(大)', category: '碳酸飲料', price: 45, size: 'L' },
-        { id: 'd04', name: '雪碧(小)', category: '碳酸飲料', price: 25, size: 'S' },
-        { id: 'd05', name: '雪碧(中)', category: '碳酸飲料', price: 35, size: 'M' },
-        { id: 'd06', name: '雪碧(大)', category: '碳酸飲料', price: 45, size: 'L' },
-        { id: 'd07', name: '冰紅茶(小)', category: '茶飲', price: 25, size: 'S' },
-        { id: 'd08', name: '冰紅茶(中)', category: '茶飲', price: 35, size: 'M' },
-        { id: 'd09', name: '冰紅茶(大)', category: '茶飲', price: 45, size: 'L' },
-        { id: 'd10', name: '冰綠茶(中)', category: '茶飲', price: 35, size: 'M' },
-        { id: 'd11', name: '冰綠茶(大)', category: '茶飲', price: 45, size: 'L' },
-        { id: 'd12', name: '奶茶(中)', category: '奶茶', price: 42, size: 'M' },
-        { id: 'd13', name: '奶茶(大)', category: '奶茶', price: 52, size: 'L' },
-        { id: 'd14', name: '熱經典美式咖啡(中)', category: '咖啡', price: 39, size: 'M' },
-        { id: 'd15', name: '熱經典美式咖啡(大)', category: '咖啡', price: 49, size: 'L' },
-        { id: 'd16', name: '冰經典美式咖啡(中)', category: '咖啡', price: 39, size: 'M' },
-        { id: 'd17', name: '冰經典美式咖啡(大)', category: '咖啡', price: 49, size: 'L' },
-        { id: 'd18', name: '熱拿鐵(中)', category: '咖啡', price: 55, size: 'M' },
-        { id: 'd19', name: '熱拿鐵(大)', category: '咖啡', price: 65, size: 'L' },
-        { id: 'd20', name: '冰拿鐵(中)', category: '咖啡', price: 55, size: 'M' },
-        { id: 'd21', name: '冰拿鐵(大)', category: '咖啡', price: 65, size: 'L' },
-        { id: 'd22', name: '柳橙汁(中)', category: '果汁', price: 52, size: 'M' },
-        { id: 'd23', name: '四季春茶(中)', category: '茶飲', price: 35, size: 'M' },
-        { id: 'd24', name: '玉米濃湯', category: '湯品', price: 35 },
-        { id: 'd25', name: '鮮乳(小)', category: '乳品', price: 39, size: 'S' },
+        { id: 'd01', name: '可口可樂(小)', category: '碳酸飲料', price: 25, cal: 140, size: 'S' },
+        { id: 'd02', name: '可口可樂(中)', category: '碳酸飲料', price: 35, cal: 210, size: 'M', comboDefault: true },
+        { id: 'd03', name: '可口可樂(大)', category: '碳酸飲料', price: 45, cal: 290, size: 'L' },
+        { id: 'd04', name: '雪碧(小)', category: '碳酸飲料', price: 25, cal: 130, size: 'S' },
+        { id: 'd05', name: '雪碧(中)', category: '碳酸飲料', price: 35, cal: 200, size: 'M' },
+        { id: 'd06', name: '雪碧(大)', category: '碳酸飲料', price: 45, cal: 280, size: 'L' },
+        { id: 'd07', name: '冰紅茶(小)', category: '茶飲', price: 25, cal: 60, size: 'S' },
+        { id: 'd08', name: '冰紅茶(中)', category: '茶飲', price: 35, cal: 90, size: 'M' },
+        { id: 'd09', name: '冰紅茶(大)', category: '茶飲', price: 45, cal: 130, size: 'L' },
+        { id: 'd10', name: '冰綠茶(中)', category: '茶飲', price: 35, cal: 50, size: 'M' },
+        { id: 'd11', name: '冰綠茶(大)', category: '茶飲', price: 45, cal: 70, size: 'L' },
+        { id: 'd12', name: '奶茶(中)', category: '奶茶', price: 42, cal: 150, size: 'M' },
+        { id: 'd13', name: '奶茶(大)', category: '奶茶', price: 52, cal: 210, size: 'L' },
+        { id: 'd14', name: '熱經典美式咖啡(中)', category: '咖啡', price: 39, cal: 10, size: 'M' },
+        { id: 'd15', name: '熱經典美式咖啡(大)', category: '咖啡', price: 49, cal: 15, size: 'L' },
+        { id: 'd16', name: '冰經典美式咖啡(中)', category: '咖啡', price: 39, cal: 10, size: 'M' },
+        { id: 'd17', name: '冰經典美式咖啡(大)', category: '咖啡', price: 49, cal: 15, size: 'L' },
+        { id: 'd18', name: '熱拿鐵(中)', category: '咖啡', price: 55, cal: 150, size: 'M' },
+        { id: 'd19', name: '熱拿鐵(大)', category: '咖啡', price: 65, cal: 200, size: 'L' },
+        { id: 'd20', name: '冰拿鐵(中)', category: '咖啡', price: 55, cal: 120, size: 'M' },
+        { id: 'd21', name: '冰拿鐵(大)', category: '咖啡', price: 65, cal: 160, size: 'L' },
+        { id: 'd22', name: '柳橙汁(中)', category: '果汁', price: 52, cal: 180, size: 'M' },
+        { id: 'd23', name: '四季春茶(中)', category: '茶飲', price: 35, cal: 50, size: 'M' },
+        { id: 'd24', name: '玉米濃湯', category: '湯品', price: 35, cal: 90 },
+        { id: 'd25', name: '鮮乳(小)', category: '乳品', price: 39, cal: 120, size: 'S' },
     ],
     desserts: [
-        { id: 'x01', name: '蛋捲冰淇淋', category: '冰品', price: 18 },
-        { id: 'x02', name: '冰炫風-OREO', category: '冰品', price: 55 },
-        { id: 'x03', name: '冰炫風-巧克力', category: '冰品', price: 55 },
-        { id: 'x04', name: '聖代-草莓', category: '冰品', price: 39 },
-        { id: 'x05', name: '聖代-巧克力', category: '冰品', price: 39 },
-        { id: 'x06', name: '鬆餅(2塊)', category: '點心', price: 39 },
-        { id: 'x07', name: '蘋果派', category: '點心', price: 32 },
-        { id: 'x08', name: '勁辣香雞翅(3塊)', category: '點心', price: 89 },
+        { id: 'x01', name: '蛋捲冰淇淋', category: '冰品', price: 18, cal: 170 },
+        { id: 'x02', name: '冰炫風-OREO', category: '冰品', price: 55, cal: 360 },
+        { id: 'x03', name: '冰炫風-巧克力', category: '冰品', price: 55, cal: 350 },
+        { id: 'x04', name: '聖代-草莓', category: '冰品', price: 39, cal: 290 },
+        { id: 'x05', name: '聖代-巧克力', category: '冰品', price: 39, cal: 310 },
+        { id: 'x06', name: '鬆餅(2塊)', category: '點心', price: 39, cal: 260 },
+        { id: 'x07', name: '蘋果派', category: '點心', price: 32, cal: 253 },
+        { id: 'x08', name: '勁辣香雞翅(3塊)', category: '點心', price: 89, cal: 435 },
     ]
 };
 
@@ -765,6 +994,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPromoGrid();
     renderCompareFilter();
     renderOptimizer();
+    renderCreditCardTab();
+    renderQuickPickTab();
 });
 
 // =====================================================
@@ -773,7 +1004,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function switchTab(tabName) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    event.target.classList.add('active');
+    // Find the clicked button by matching the tab name
+    document.querySelectorAll('.tab-btn').forEach(b => {
+        if (b.getAttribute('onclick').includes("'" + tabName + "'")) b.classList.add('active');
+    });
     document.getElementById('tab-' + tabName).classList.add('active');
 }
 
@@ -803,29 +1037,33 @@ function renderMenuRows() {
         if (search && !item.name.toLowerCase().includes(search) && !item.category.toLowerCase().includes(search)) return;
         const singleTotal = item.single + COMBO_SIDE_PRICE + COMBO_DRINK_PRICE;
         const saved = singleTotal - item.combo;
+        const calColor = item.cal >= 600 ? 'var(--mcd-red)' : item.cal >= 400 ? '#E65100' : 'var(--mcd-green)';
         html += `<tr>
             <td><strong>${item.name}</strong> ${item.hot ? '<span class="tag tag-hot">人氣</span>' : ''}</td>
             <td>${item.category}</td>
             <td>$${item.single}</td>
             <td class="price-highlight">$${item.combo}</td>
             <td class="price-save">省$${saved}</td>
+            <td style="color:${calColor};font-weight:600;">${item.cal} kcal</td>
             <td>${item.desc || ''}</td>
         </tr>`;
     });
 
     // Sides
     if (activeMenuCat === 'all' && !search) {
-        html += `<tr class="cat-row"><td colspan="6">🍟 配餐</td></tr>`;
+        html += `<tr class="cat-row"><td colspan="7">🍟 配餐</td></tr>`;
     }
     if (activeMenuCat === 'all') {
         menuData.sides.forEach(item => {
             if (search && !item.name.toLowerCase().includes(search)) return;
+            const calColor = item.cal >= 400 ? '#E65100' : 'var(--mcd-green)';
             html += `<tr>
                 <td>${item.name}</td>
                 <td>${item.category}</td>
                 <td>$${item.price}</td>
                 <td>-</td>
                 <td>-</td>
+                <td style="color:${calColor};font-weight:600;">${item.cal} kcal</td>
                 <td>${item.note || (item.size ? '尺寸: ' + item.size : '')}</td>
             </tr>`;
         });
@@ -833,17 +1071,19 @@ function renderMenuRows() {
 
     // Drinks
     if (activeMenuCat === 'all' && !search) {
-        html += `<tr class="cat-row"><td colspan="6">🥤 飲料</td></tr>`;
+        html += `<tr class="cat-row"><td colspan="7">🥤 飲料</td></tr>`;
     }
     if (activeMenuCat === 'all') {
         menuData.drinks.forEach(item => {
             if (search && !item.name.toLowerCase().includes(search)) return;
+            const calColor = item.cal >= 200 ? '#E65100' : 'var(--mcd-green)';
             html += `<tr>
                 <td>${item.name}</td>
                 <td>${item.category}</td>
                 <td>$${item.price}</td>
                 <td>-</td>
                 <td>-</td>
+                <td style="color:${calColor};font-weight:600;">${item.cal} kcal</td>
                 <td>${item.size ? '尺寸: ' + item.size : ''}</td>
             </tr>`;
         });
@@ -851,23 +1091,25 @@ function renderMenuRows() {
 
     // Desserts
     if (activeMenuCat === 'all' && !search) {
-        html += `<tr class="cat-row"><td colspan="6">🍰 甜點/其他</td></tr>`;
+        html += `<tr class="cat-row"><td colspan="7">🍰 甜點/其他</td></tr>`;
     }
     if (activeMenuCat === 'all') {
         menuData.desserts.forEach(item => {
             if (search && !item.name.toLowerCase().includes(search)) return;
+            const calColor = item.cal >= 300 ? '#E65100' : 'var(--mcd-green)';
             html += `<tr>
                 <td>${item.name}</td>
                 <td>${item.category}</td>
                 <td>$${item.price}</td>
                 <td>-</td>
                 <td>-</td>
+                <td style="color:${calColor};font-weight:600;">${item.cal} kcal</td>
                 <td></td>
             </tr>`;
         });
     }
 
-    tbody.innerHTML = html || '<tr><td colspan="6" class="empty-state">找不到符合的餐點</td></tr>';
+    tbody.innerHTML = html || '<tr><td colspan="7" class="empty-state">找不到符合的餐點</td></tr>';
 }
 
 function filterMenuCat(cat) {
@@ -1052,10 +1294,15 @@ function renderItemCard(item, type) {
     const sel = selectedItems[item.id];
     const qty = sel ? sel.qty : 0;
     const price = item.single || item.price;
+    const cal = item.cal || 0;
+    const calColor = cal >= 500 ? 'var(--mcd-red)' : cal >= 300 ? '#E65100' : 'var(--mcd-green)';
     return `
         <div class="item-card ${qty > 0 ? 'selected' : ''}" id="card-${item.id}">
             <div class="item-name">${item.name}</div>
-            <div class="item-price">$${price}</div>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <div class="item-price">$${price}</div>
+                <div style="font-size:0.78rem;color:${calColor};font-weight:600;">${cal} kcal</div>
+            </div>
             <div class="qty-control">
                 <button class="qty-btn" onclick="changeQty('${item.id}', -1, '${type}')">−</button>
                 <span class="qty-display">${qty}</span>
@@ -1397,9 +1644,20 @@ function calculateBestDeal() {
     plans.sort((a, b) => a.price - b.price);
     const bestPrice = plans[0].price;
 
+    // Total calories
+    const totalCal = entries.reduce((sum, e) => sum + (e.item.cal || 0) * e.qty, 0);
+    const calLabel = totalCal >= 1200 ? '🔴 熱量偏高' : totalCal >= 800 ? '🟠 熱量適中' : '🟢 熱量較低';
+    const calColor2 = totalCal >= 1200 ? 'var(--mcd-red)' : totalCal >= 800 ? '#E65100' : 'var(--mcd-green)';
+
     // Render results
     let html = `<div class="result-box">
-        <h3>📊 計算結果 — ${Object.values(selectedItems).reduce((s, e) => s + e.qty, 0)} 樣商品</h3>`;
+        <h3>📊 計算結果 — ${Object.values(selectedItems).reduce((s, e) => s + e.qty, 0)} 樣商品</h3>
+        <div style="background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <div>🔥 <strong>總熱量</strong></div>
+            <div style="font-size:1.5rem;font-weight:800;color:${calColor2};">${totalCal} kcal</div>
+            <div style="font-size:0.9rem;color:${calColor2};font-weight:600;">${calLabel}</div>
+            <div style="font-size:0.8rem;color:#999;margin-left:auto;">(成人每日建議摂取熱量約 2000 kcal)</div>
+        </div>`;
 
     plans.forEach((plan, idx) => {
         const isBest = plan.price === bestPrice;
@@ -1430,6 +1688,7 @@ function calculateBestDeal() {
                 比全部單點省 <strong style="color:var(--mcd-red);">$${saved}</strong>
                 (省 ${Math.round(saved/planA_total*100)}%)
             </span>
+            <div style="margin-top:8px;font-size:0.9rem;color:${calColor2};font-weight:600;">🔥 這一餐總熱量：${totalCal} kcal ${calLabel}</div>
         </div>
     </div>`;
 
@@ -1437,6 +1696,689 @@ function calculateBestDeal() {
 
     // Scroll to result
     document.getElementById('optimizerResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// =====================================================
+// Credit Card Promotions Database (2026)
+// =====================================================
+const creditCardData = [
+    {
+        id: 'cc01',
+        bank: '國泰世華',
+        cardName: 'CUBE卡',
+        icon: '🏦',
+        iconBg: '#00695C',
+        type: '一般消費',
+        cashbackRate: '3%',
+        cashbackDesc: '速食通路享3%小樹點回饋',
+        details: [
+            '速食/餐飲通路享3%小樹點回饋',
+            '行動支付搭配再加碼1%',
+            '每月回饋上限300點',
+            '小樹點可折抵帳單或兌換商品',
+        ],
+        conditions: '需登錄活動，每月回饋有上限。新戶首3個月加碼至5%。',
+        rating: 5,
+        paymentMethods: ['實體刷卡', 'Apple Pay', 'Google Pay'],
+        tags: ['推薦', '高回饋'],
+    },
+    {
+        id: 'cc02',
+        bank: '中國信託',
+        cardName: 'LINE Pay卡',
+        icon: '🏛️',
+        iconBg: '#00C300',
+        type: 'LINE Pay',
+        cashbackRate: '3%',
+        cashbackDesc: 'LINE Pay消費享3% LINE Points',
+        details: [
+            '綁定LINE Pay於麥當勞APP付款享3%',
+            '部分月份速食加碼至5%',
+            'LINE Points可直接折抵消費',
+            '搭配LINE Pay叫餐再享專屬優惠',
+        ],
+        conditions: '需使用LINE Pay支付，每月回饋上限600點。',
+        rating: 5,
+        paymentMethods: ['LINE Pay'],
+        tags: ['推薦', '行動支付'],
+    },
+    {
+        id: 'cc03',
+        bank: '玉山銀行',
+        cardName: 'U Bear卡',
+        icon: '🐻',
+        iconBg: '#1565C0',
+        type: '數位消費',
+        cashbackRate: '5%',
+        cashbackDesc: '數位通路享5%現金回饋',
+        details: [
+            '數位帳單+數位消費享5%',
+            '麥當勞APP下單屬數位消費',
+            '含外送平台(UberEats等)',
+            '每月回饋上限500元',
+        ],
+        conditions: '需申辦數位帳單，且透過數位通路(APP/線上)支付才適用。',
+        rating: 5,
+        paymentMethods: ['實體刷卡', 'Apple Pay', 'Google Pay', '線上支付'],
+        tags: ['推薦', '最高回饋'],
+    },
+    {
+        id: 'cc04',
+        bank: '台新銀行',
+        cardName: 'FlyGo卡',
+        icon: '✈️',
+        iconBg: '#E65100',
+        type: '行動支付',
+        cashbackRate: '2.8%',
+        cashbackDesc: '行動支付2.8%回饋',
+        details: [
+            '任何行動支付(Apple Pay/Google Pay/Samsung Pay)享2.8%',
+            '麥當勞門市感應支付適用',
+            '國內外消費皆適用',
+            '回饋無上限',
+        ],
+        conditions: '需使用行動支付感應付款。一般刷卡僅0.2%。',
+        rating: 4,
+        paymentMethods: ['Apple Pay', 'Google Pay', 'Samsung Pay'],
+        tags: ['行動支付', '無上限'],
+    },
+    {
+        id: 'cc05',
+        bank: '永豐銀行',
+        cardName: 'DAWHO現金回饋卡',
+        icon: '🌟',
+        iconBg: '#6A1B9A',
+        type: '一般消費',
+        cashbackRate: '2%',
+        cashbackDesc: '國內消費2%現金回饋',
+        details: [
+            '一般國內消費享2%現金回饋',
+            '麥當勞門市刷卡直接適用',
+            '回饋直接折抵帳單',
+            '年費永久免收',
+        ],
+        conditions: '需數位帳戶綁定，每月回饋上限200元。',
+        rating: 3,
+        paymentMethods: ['實體刷卡', 'Apple Pay', 'Google Pay'],
+        tags: ['穩定回饋'],
+    },
+    {
+        id: 'cc06',
+        bank: '富邦銀行',
+        cardName: 'J卡',
+        icon: '💎',
+        iconBg: '#283593',
+        type: '一般消費',
+        cashbackRate: '2%',
+        cashbackDesc: '一般消費2% LINE Points',
+        details: [
+            '一般消費享2% LINE Points',
+            '綁定LINE Pay加碼至3%',
+            '適用麥當勞門市或APP',
+            '每期帳單回饋上限300點',
+        ],
+        conditions: '需綁定LINE帳號，行動支付享加碼回饋。',
+        rating: 3,
+        paymentMethods: ['實體刷卡', 'LINE Pay'],
+        tags: ['LINE Points'],
+    },
+    {
+        id: 'cc07',
+        bank: '聯邦銀行',
+        cardName: '賴點卡',
+        icon: '🎯',
+        iconBg: '#2E7D32',
+        type: 'LINE Pay',
+        cashbackRate: '2%',
+        cashbackDesc: 'LINE Pay消費2% LINE Points',
+        details: [
+            'LINE Pay消費享2% LINE Points',
+            '特定通路加碼至3%',
+            '含速食/餐飲通路',
+            '年費免費',
+        ],
+        conditions: '需透過LINE Pay支付，每月回饋上限200點。',
+        rating: 3,
+        paymentMethods: ['LINE Pay'],
+        tags: ['行動支付'],
+    },
+    {
+        id: 'cc08',
+        bank: '台北富邦',
+        cardName: '幸福信用卡',
+        icon: '🌸',
+        iconBg: '#C62828',
+        type: '週末加碼',
+        cashbackRate: '3.5%',
+        cashbackDesc: '週末餐飲消費3.5%回饋',
+        details: [
+            '週六日餐飲消費享3.5%現金回饋',
+            '平日餐飲消費享1.5%',
+            '麥當勞歸類為餐飲消費',
+            '行動支付額外加碼0.5%',
+        ],
+        conditions: '僅週末享最高回饋，平日為1.5%。每月上限200元。',
+        rating: 4,
+        paymentMethods: ['實體刷卡', 'Apple Pay', 'Google Pay'],
+        tags: ['週末加碼', '限時'],
+    },
+    {
+        id: 'cc09',
+        bank: '花旗銀行',
+        cardName: '現金回饋PLUS卡',
+        icon: '🌐',
+        iconBg: '#0277BD',
+        type: '一般消費',
+        cashbackRate: '2%',
+        cashbackDesc: '國內消費2%現金回饋',
+        details: [
+            '國內一般消費2%現金回饋',
+            '無須登錄，自動享回饋',
+            '回饋直接折抵帳單',
+            '適用所有通路',
+        ],
+        conditions: '帳單需達指定金額才享2%，否則為0.5%。',
+        rating: 3,
+        paymentMethods: ['實體刷卡'],
+        tags: ['簡單無腦'],
+    },
+    {
+        id: 'cc10',
+        bank: '第一銀行',
+        cardName: 'iLEO信用卡',
+        icon: '🦁',
+        iconBg: '#F57F17',
+        type: '數位消費',
+        cashbackRate: '1.5%',
+        cashbackDesc: '國內消費1.5%回饋',
+        details: [
+            '一般國內消費1.5%現金回饋',
+            '免年費、無限制',
+            '適用麥當勞門市/APP',
+            '搭配iLEO數位帳戶另有優惠',
+        ],
+        conditions: '需持有iLEO數位帳戶，回饋上限每月150元。',
+        rating: 2,
+        paymentMethods: ['實體刷卡', 'Apple Pay'],
+        tags: ['入門款'],
+    },
+    {
+        id: 'cc11',
+        bank: '街口支付',
+        cardName: '街口聯名卡',
+        icon: '📱',
+        iconBg: '#FF6F00',
+        type: '行動支付',
+        cashbackRate: '4%',
+        cashbackDesc: '街口支付享4%街口幣回饋',
+        details: [
+            '使用街口支付於麥當勞付款享4%',
+            '街口幣可直接折抵下次消費',
+            '需綁定街口聯名卡才享最高回饋',
+            '不定期推出加碼活動',
+        ],
+        conditions: '需使用街口支付APP掃碼付款，每月回饋上限300幣。',
+        rating: 4,
+        paymentMethods: ['街口支付'],
+        tags: ['行動支付', '高回饋'],
+    },
+    {
+        id: 'cc12',
+        bank: '悠遊付',
+        cardName: 'Easy Wallet',
+        icon: '🚇',
+        iconBg: '#004D40',
+        type: '行動支付',
+        cashbackRate: '2%',
+        cashbackDesc: '悠遊付消費2%回饋',
+        details: [
+            '悠遊付掃碼支付享2%回饋',
+            '可搭配悠遊卡自動加值優惠',
+            '部分門市支援悠遊付',
+            '回饋可折抵搭乘大眾運輸',
+        ],
+        conditions: '需門市有支援悠遊付QR Code，部分門市尚未支援。',
+        rating: 2,
+        paymentMethods: ['悠遊付'],
+        tags: ['行動支付'],
+    },
+];
+
+let activeCCFilter = 'all';
+
+function renderCreditCardTab() {
+    renderCCFilter();
+    renderCCGrid();
+    renderCCBanner();
+}
+
+function renderCCFilter() {
+    const types = [...new Set(creditCardData.map(c => c.type))];
+    const el = document.getElementById('ccFilterBar');
+    el.innerHTML = `<button class="cc-filter-btn active" onclick="filterCC('all')">全部</button>` +
+        types.map(t => `<button class="cc-filter-btn" onclick="filterCC('${t}')">${t}</button>`).join('') +
+        `<button class="cc-filter-btn" onclick="filterCC('highest')">💰 最高回饋排序</button>`;
+}
+
+function filterCC(type) {
+    activeCCFilter = type;
+    document.querySelectorAll('.cc-filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    renderCCGrid();
+}
+
+function renderCCBanner() {
+    // Find the best card right now
+    const now = new Date();
+    const isWeekend = now.getDay() === 0 || now.getDay() === 6;
+    const hour = now.getHours();
+
+    // Calculate effective rate for right now
+    let bestCard = null;
+    let bestRate = 0;
+    let bestReason = '';
+
+    creditCardData.forEach(cc => {
+        let rate = parseFloat(cc.cashbackRate);
+        let reason = cc.cashbackDesc;
+
+        // Weekend bonus for 台北富邦
+        if (cc.id === 'cc08' && isWeekend) {
+            rate = 3.5;
+            reason = '週末餐飲加碼 3.5%！';
+        } else if (cc.id === 'cc08' && !isWeekend) {
+            rate = 1.5;
+        }
+
+        if (rate > bestRate) {
+            bestRate = rate;
+            bestCard = cc;
+            bestReason = reason;
+        }
+    });
+
+    const timeLabel = isWeekend ? '🎉 週末' : '📅 平日';
+    const el = document.getElementById('ccBestBanner');
+    el.innerHTML = `
+        <h2>🏆 現在去麥當勞，推薦刷這張卡！</h2>
+        <div style="font-size:0.85rem;opacity:0.8;">${timeLabel} ${hour}:${String(now.getMinutes()).padStart(2,'0')}</div>
+        <div class="cc-best-card-name">${bestCard.bank} ${bestCard.cardName}</div>
+        <div class="cc-best-desc">${bestReason}</div>
+        <div style="margin-top:12px;font-size:1.5rem;font-weight:800;">最高回饋 ${bestRate}%</div>
+        <div style="margin-top:8px;font-size:0.85rem;opacity:0.8;">以消費 $135 套餐為例，可省 $${Math.round(135 * bestRate / 100)}</div>
+        <div style="margin-top:12px;">
+            <span style="font-size:0.85rem;opacity:0.7;">支付方式：</span>
+            ${bestCard.paymentMethods.map(m => `<span style="display:inline-block;background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:10px;font-size:0.8rem;margin:2px;">${m}</span>`).join('')}
+        </div>
+    `;
+}
+
+function renderCCGrid() {
+    let cards = [...creditCardData];
+
+    if (activeCCFilter === 'highest') {
+        cards.sort((a, b) => parseFloat(b.cashbackRate) - parseFloat(a.cashbackRate));
+    } else if (activeCCFilter !== 'all') {
+        cards = cards.filter(c => c.type === activeCCFilter);
+    }
+
+    const el = document.getElementById('ccGrid');
+    el.innerHTML = cards.map((cc, idx) => {
+        const rate = parseFloat(cc.cashbackRate);
+        const isTop = rate >= 3;
+        const tagHtml = cc.tags.map(t => {
+            if (t === '推薦' || t === '最高回饋' || t === '高回饋') return `<span class="cc-tag cc-tag-best">${t}</span>`;
+            if (t === '限時' || t === '週末加碼') return `<span class="cc-tag cc-tag-limited">${t}</span>`;
+            return `<span class="cc-tag cc-tag-good">${t}</span>`;
+        }).join(' ');
+
+        // Calculate savings example for a $135 combo
+        const savingsExample = Math.round(135 * rate / 100);
+
+        return `
+        <div class="cc-card ${isTop ? 'cc-top' : ''}">
+            <div class="cc-card-header">
+                <div class="cc-bank-icon" style="background:${cc.iconBg};">${cc.icon}</div>
+                <div>
+                    <div>${cc.bank} ${cc.cardName}</div>
+                    <div style="font-size:0.8rem;font-weight:400;color:#999;">${cc.type}</div>
+                </div>
+                <div style="margin-left:auto;">${tagHtml}</div>
+            </div>
+            <div class="cc-card-body">
+                <div class="cc-rate">💰 ${cc.cashbackRate} 回饋</div>
+                <p style="font-size:0.9rem;color:#333;margin-bottom:8px;">${cc.cashbackDesc}</p>
+                <ul>
+                    ${cc.details.map(d => `<li>${d}</li>`).join('')}
+                </ul>
+                <div style="background:#E8F5E9;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:0.85rem;">
+                    <strong style="color:var(--mcd-green);">💡 以 $135 套餐為例：</strong> 可回饋 <strong>$${savingsExample}</strong>
+                </div>
+                <div style="margin-bottom:8px;">
+                    ${cc.paymentMethods.map(m => `<span style="display:inline-block;background:#f0f0f0;padding:2px 8px;border-radius:8px;font-size:0.75rem;margin:2px;">${m}</span>`).join('')}
+                </div>
+                <div class="cc-condition">⚠️ ${cc.conditions}</div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// =====================================================
+// TAB 6: Quick Pick - "我想吃..."
+// =====================================================
+let quickPickSelected = {}; // { itemId: { item, type } }
+
+const popularCombos = [
+    { label: '🍔 經典大麥克套餐', items: ['m01', 's02', 'd02'] },
+    { label: '🔥 大麥克 + 薯條', items: ['m01', 's03'] },
+    { label: '🐔 勁辣雞腿堡套餐', items: ['m11', 's02', 'd02'] },
+    { label: '💰 小資族最愛', items: ['m10', 's01', 'd01'] },
+    { label: '🍗 雞塊分享', items: ['m16', 's03', 'd03'] },
+    { label: '👨‍👩‍👧 雙人約會', items: ['m01', 'm11', 's03', 's02', 'd02', 'd08'] },
+    { label: '☕ 下午茶', items: ['s02', 'x02', 'd18'] },
+    { label: '🌅 經典早餐', items: ['m22', 'd14'] },
+];
+
+function renderQuickPickTab() {
+    renderQuickPopular();
+    renderQuickTags();
+    renderQuickSummary();
+}
+
+function renderQuickPopular() {
+    const el = document.getElementById('quickPopular');
+    el.innerHTML = popularCombos.map((combo, idx) =>
+        `<button class="popular-btn" onclick="selectPopularCombo(${idx})">${combo.label}</button>`
+    ).join('');
+}
+
+function selectPopularCombo(idx) {
+    const combo = popularCombos[idx];
+    quickPickSelected = {};
+    combo.items.forEach(id => {
+        const item = findItemById(id);
+        if (item) {
+            quickPickSelected[id] = { item: item.item, type: item.type };
+        }
+    });
+    renderQuickTags();
+    renderQuickSummary();
+    // Auto calculate
+    setTimeout(() => calculateQuickPick(), 100);
+}
+
+function findItemById(id) {
+    let item = menuData.mains.find(m => m.id === id);
+    if (item) return { item, type: 'main' };
+    item = menuData.sides.find(s => s.id === id);
+    if (item) return { item, type: 'side' };
+    item = menuData.drinks.find(d => d.id === id);
+    if (item) return { item, type: 'drink' };
+    item = menuData.desserts.find(d => d.id === id);
+    if (item) return { item, type: 'dessert' };
+    return null;
+}
+
+function toggleQuickPick(id) {
+    if (quickPickSelected[id]) {
+        delete quickPickSelected[id];
+    } else {
+        const found = findItemById(id);
+        if (found) {
+            quickPickSelected[id] = { item: found.item, type: found.type };
+        }
+    }
+    renderQuickTags();
+    renderQuickSummary();
+}
+
+function removeQuickPick(id) {
+    delete quickPickSelected[id];
+    renderQuickTags();
+    renderQuickSummary();
+}
+
+function filterQuickPick() {
+    renderQuickTags();
+}
+
+function renderQuickTags() {
+    const search = (document.getElementById('quickPickSearch')?.value || '').toLowerCase();
+
+    const renderSection = (items, type, containerId) => {
+        const el = document.getElementById(containerId);
+        if (!el) return;
+        const filtered = search ? items.filter(i => i.name.toLowerCase().includes(search) || (i.category && i.category.toLowerCase().includes(search))) : items;
+        el.innerHTML = filtered.map(item => {
+            const isSelected = !!quickPickSelected[item.id];
+            const price = item.single || item.price;
+            return `<button class="quick-tag ${isSelected ? 'selected' : ''}" onclick="toggleQuickPick('${item.id}')">
+                ${item.name} <span class="qtag-price">$${price}</span>
+            </button>`;
+        }).join('') || '<span style="color:#999;font-size:0.9rem;">無符合結果</span>';
+    };
+
+    renderSection(menuData.mains, 'main', 'qpMains');
+    renderSection(menuData.sides, 'side', 'qpSides');
+    renderSection(menuData.drinks, 'drink', 'qpDrinks');
+    renderSection(menuData.desserts, 'dessert', 'qpDesserts');
+}
+
+function renderQuickSummary() {
+    const el = document.getElementById('quickSelectedSummary');
+    const entries = Object.entries(quickPickSelected);
+    if (entries.length === 0) {
+        el.innerHTML = '<span style="color:#999;">👆 點選下方品項，或上方搜尋</span>';
+        return;
+    }
+    let total = 0;
+    let totalCal = 0;
+    const chips = entries.map(([id, { item }]) => {
+        const p = item.single || item.price;
+        const c = item.cal || 0;
+        total += p;
+        totalCal += c;
+        return `<span class="quick-chip">${item.name} $${p} <span style="opacity:0.8;font-size:0.78rem;">${c}kcal</span> <span class="chip-remove" onclick="removeQuickPick('${id}')">✕</span></span>`;
+    }).join('');
+    const calColor = totalCal >= 1200 ? 'var(--mcd-red)' : totalCal >= 800 ? '#E65100' : 'var(--mcd-green)';
+    el.innerHTML = chips +
+        `<div style="margin-left:auto;text-align:right;">
+            <div style="font-weight:700;font-size:1.05rem;color:var(--mcd-red);">$${total} <span style="font-size:0.85rem;font-weight:400;color:#999;">單點</span></div>
+            <div style="font-size:0.9rem;font-weight:700;color:${calColor};">${totalCal} kcal</div>
+        </div>`;
+}
+
+function calculateQuickPick() {
+    const entries = Object.values(quickPickSelected);
+    if (entries.length === 0) {
+        document.getElementById('quickPickResult').innerHTML = `
+            <div class="empty-state" style="margin-top:20px;">
+                <div class="emoji">🤔</div>
+                <p>請先選擇至少一樣想吃的東西！</p>
+            </div>`;
+        return;
+    }
+
+    // Categorize selected items
+    const mainsList = [];
+    const sidesList = [];
+    const drinksList = [];
+    const dessertsList = [];
+
+    entries.forEach(e => {
+        if (e.type === 'main') mainsList.push(e.item);
+        else if (e.type === 'side') sidesList.push(e.item);
+        else if (e.type === 'drink') drinksList.push(e.item);
+        else dessertsList.push(e.item);
+    });
+
+    // ========= Re-use the same 5 strategy calculations =========
+    const allItems = [...mainsList, ...sidesList, ...drinksList, ...dessertsList];
+
+    // Plan A: All single
+    let planA = 0;
+    let planA_d = [];
+    allItems.forEach(item => {
+        const p = item.single || item.price;
+        planA += p;
+        planA_d.push(`${item.name} $${p}`);
+    });
+
+    // Plan B: Max combos
+    let planB = 0, planB_d = [];
+    const rSides_B = [...sidesList], rDrinks_B = [...drinksList], rDesserts_B = [...dessertsList];
+    [...mainsList].sort((a,b) => {
+        return ((b.single + COMBO_SIDE_PRICE + COMBO_DRINK_PRICE) - b.combo) - ((a.single + COMBO_SIDE_PRICE + COMBO_DRINK_PRICE) - a.combo);
+    }).forEach(main => {
+        if (main.combo && (rSides_B.length > 0 || rDrinks_B.length > 0)) {
+            planB += main.combo;
+            planB_d.push(`${main.name} 套餐 $${main.combo} (含中薯+中飲)`);
+            if (rSides_B.length > 0) {
+                const si = rSides_B.splice(0,1)[0];
+                if (si.price > COMBO_SIDE_PRICE) { planB += si.price - COMBO_SIDE_PRICE; planB_d.push(`  ↳ 升級${si.name} +$${si.price - COMBO_SIDE_PRICE}`); }
+            }
+            if (rDrinks_B.length > 0) {
+                const di = rDrinks_B.splice(0,1)[0];
+                if (di.price > COMBO_DRINK_PRICE) { planB += di.price - COMBO_DRINK_PRICE; planB_d.push(`  ↳ 升級${di.name} +$${di.price - COMBO_DRINK_PRICE}`); }
+            }
+        } else {
+            planB += main.single; planB_d.push(`${main.name} 單點 $${main.single}`);
+        }
+    });
+    [...rSides_B, ...rDrinks_B, ...rDesserts_B].forEach(i => { planB += i.price; planB_d.push(`${i.name} 單點 $${i.price}`); });
+
+    // Plan C: Sweetheart card
+    let planC = 0, planC_d = [];
+    const rSides_C = [...sidesList], rDrinks_C = [...drinksList], rDesserts_C = [...dessertsList];
+    [...mainsList].forEach(main => {
+        planC += main.single;
+        planC_d.push(`${main.name} 單點 $${main.single} (A區)`);
+        let bestBPrice = 0, bestB = null, bestBIdx = -1, bestBList = null;
+        [rDrinks_C, rSides_C, rDesserts_C].forEach(list => {
+            list.forEach((item, idx) => { if (item.price > bestBPrice) { bestBPrice = item.price; bestB = item; bestBIdx = idx; bestBList = list; } });
+        });
+        if (bestB && bestBList) {
+            const half = Math.round(bestBPrice / 2);
+            planC += half; planC_d.push(`  ↳ 甜心卡搭 ${bestB.name} 半價 $${half} (原$${bestBPrice})`);
+            bestBList.splice(bestBIdx, 1);
+        }
+    });
+    [...rSides_C, ...rDrinks_C, ...rDesserts_C].forEach(i => { planC += i.price; planC_d.push(`${i.name} 單點 $${i.price}`); });
+
+    // Plan D: 1+1=50
+    let planD = 0, planD_d = [];
+    const allD = [];
+    mainsList.forEach(m => allD.push({ ...m, actualPrice: m.single, itemType: 'main' }));
+    sidesList.forEach(s => allD.push({ ...s, actualPrice: s.price, itemType: 'side' }));
+    drinksList.forEach(d => allD.push({ ...d, actualPrice: d.price, itemType: 'drink' }));
+    dessertsList.forEach(d => allD.push({ ...d, actualPrice: d.price, itemType: 'dessert' }));
+    const elig11 = allD.filter(i => ONEONE_ITEMS.includes(i.name));
+    const nonElig11 = allD.filter(i => !ONEONE_ITEMS.includes(i.name));
+    let p11 = Math.floor(elig11.length / 2);
+    planD += p11 * 50;
+    for (let i = 0; i < p11; i++) planD_d.push(`1+1=$50: ${elig11[i*2].name} + ${elig11[i*2+1].name}`);
+    if (elig11.length % 2 === 1) { const last = elig11[elig11.length-1]; planD += last.actualPrice; planD_d.push(`${last.name} 單點 $${last.actualPrice}`); }
+    nonElig11.filter(i => i.itemType === 'main').forEach(m => { if (m.combo) { planD += m.combo; planD_d.push(`${m.name} 套餐 $${m.combo}`); } else { planD += m.actualPrice; planD_d.push(`${m.name} 單點 $${m.actualPrice}`); } });
+    nonElig11.filter(i => i.itemType !== 'main').forEach(i => { planD += i.actualPrice; planD_d.push(`${i.name} 單點 $${i.actualPrice}`); });
+
+    // Plan E: Mixed
+    let planE = 0, planE_d = [];
+    const rSides_E = [...sidesList], rDrinks_E = [...drinksList], rDesserts_E = [...dessertsList];
+    [...mainsList].sort((a,b) => b.single - a.single).forEach(main => {
+        const saving = (main.single + COMBO_SIDE_PRICE + COMBO_DRINK_PRICE) - main.combo;
+        if (main.combo && saving >= 5 && (rSides_E.length > 0 || rDrinks_E.length > 0)) {
+            planE += main.combo; planE_d.push(`${main.name} 套餐 $${main.combo}`);
+            if (rSides_E.length > 0) { const si = rSides_E.splice(0,1)[0]; if (si.price > COMBO_SIDE_PRICE) { planE += si.price - COMBO_SIDE_PRICE; planE_d.push(`  ↳ 升級${si.name} +$${si.price - COMBO_SIDE_PRICE}`); } }
+            if (rDrinks_E.length > 0) { const di = rDrinks_E.splice(0,1)[0]; if (di.price > COMBO_DRINK_PRICE) { planE += di.price - COMBO_DRINK_PRICE; planE_d.push(`  ↳ 升級${di.name} +$${di.price - COMBO_DRINK_PRICE}`); } }
+        } else {
+            planE += main.single; planE_d.push(`${main.name} 單點 $${main.single}`);
+            let bestBP = 0, bestB = null, bestBI = -1, bestBL = null;
+            [rDrinks_E, rSides_E, rDesserts_E].forEach(list => { list.forEach((item, idx) => { if (item.price > bestBP) { bestBP = item.price; bestB = item; bestBI = idx; bestBL = list; } }); });
+            if (bestB && bestBL) { const half = Math.round(bestBP / 2); planE += half; planE_d.push(`  ↳ 甜心卡 ${bestB.name} 半價 $${half}`); bestBL.splice(bestBI, 1); }
+        }
+    });
+    const rem_E = [...rSides_E, ...rDrinks_E, ...rDesserts_E];
+    const eligE = rem_E.filter(i => ONEONE_ITEMS.includes(i.name));
+    const nonEligE = rem_E.filter(i => !ONEONE_ITEMS.includes(i.name));
+    let pE = Math.floor(eligE.length / 2);
+    planE += pE * 50;
+    for (let i = 0; i < pE; i++) planE_d.push(`1+1=$50: ${eligE[i*2].name} + ${eligE[i*2+1].name}`);
+    if (eligE.length % 2 === 1) { const last = eligE[eligE.length-1]; planE += last.price; planE_d.push(`${last.name} 單點 $${last.price}`); }
+    nonEligE.forEach(i => { planE += i.price; planE_d.push(`${i.name} 單點 $${i.price}`); });
+
+    // Also check: credit card savings
+    const bestCC = creditCardData.reduce((best, cc) => parseFloat(cc.cashbackRate) > parseFloat(best.cashbackRate) ? cc : best);
+    const bestCCRate = parseFloat(bestCC.cashbackRate);
+
+    // Total calories
+    const totalCalQP = allItems.reduce((sum, i) => sum + (i.cal || 0), 0);
+    const calColorQP = totalCalQP >= 1200 ? 'var(--mcd-red)' : totalCalQP >= 800 ? '#E65100' : 'var(--mcd-green)';
+    const calLabelQP = totalCalQP >= 1200 ? '🔴 熱量偏高' : totalCalQP >= 800 ? '🟠 熱量適中' : '🟢 熱量較低';
+
+    // Collect plans
+    const plans = [
+        { name: '方案A：全部單點', price: planA, details: planA_d, desc: '所有商品都用單點價' },
+        { name: '方案B：儘量用套餐', price: planB, details: planB_d, desc: '主餐優先搭配套餐' },
+        { name: '方案C：甜心卡策略', price: planC, details: planC_d, desc: '主餐配甜心卡，B區半價' },
+        { name: '方案D：1+1=$50策略', price: planD, details: planD_d, desc: '小品項走1+1=$50' },
+        { name: '方案E：綜合最佳策略', price: planE, details: planE_d, desc: '套餐+甜心卡+1+1混搭' },
+    ];
+    plans.sort((a,b) => a.price - b.price);
+    const bestPrice = plans[0].price;
+    const ccSavings = Math.round(bestPrice * bestCCRate / 100);
+
+    // Render
+    let html = `<div class="result-box" style="margin-top:20px;">
+        <h3>🍽️ 你想吃的：${allItems.map(i => i.name).join(' + ')}</h3>
+        <div style="background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <div>🔥 <strong>總熱量</strong></div>
+            <div style="font-size:1.5rem;font-weight:800;color:${calColorQP};">${totalCalQP} kcal</div>
+            <div style="font-size:0.9rem;color:${calColorQP};font-weight:600;">${calLabelQP}</div>
+            <div style="font-size:0.8rem;color:#999;margin-left:auto;">(成人每日建議攝取熱量約 2000 kcal)</div>
+        </div>
+        <div style="margin-bottom:16px;padding:16px;background:#fff;border-radius:10px;text-align:center;">
+            <div style="font-size:1rem;color:#666;margin-bottom:4px;">🏆 最划算方案</div>
+            <div style="font-size:2rem;font-weight:800;color:var(--mcd-green);">$${bestPrice}</div>
+            <div style="font-size:0.9rem;color:var(--mcd-red);font-weight:600;">比全部單點省 $${planA - bestPrice} (${Math.round((planA - bestPrice)/planA*100)}%)</div>
+            <div style="font-size:0.85rem;color:#1565C0;margin-top:6px;">💳 再搭配 ${bestCC.bank} ${bestCC.cardName} (${bestCC.cashbackRate})，可再省 $${ccSavings}</div>
+            <div style="font-size:1.2rem;font-weight:800;color:var(--mcd-green);margin-top:4px;">實付最低約 $${bestPrice - ccSavings} 🎉</div>
+        </div>`;
+
+    plans.forEach(plan => {
+        const isBest = plan.price === bestPrice;
+        html += `
+            <div class="result-plan ${isBest ? 'best' : ''}">
+                <div class="plan-title">
+                    ${plan.name}
+                    ${isBest ? '<span class="best-badge">🏆 最划算</span>' : ''}
+                </div>
+                <div style="color:#666;font-size:0.85rem;margin-bottom:4px;">${plan.desc}</div>
+                <div class="plan-price">
+                    $${plan.price}
+                    ${!isBest ? `<span style="font-size:0.85rem;color:#999;margin-left:8px;">多 $${plan.price - bestPrice}</span>` : ''}
+                </div>
+                <ul class="plan-detail">
+                    ${plan.details.map(d => `<li>${d}</li>`).join('')}
+                </ul>
+            </div>`;
+    });
+
+    // Credit card recommendation
+    html += `
+        <div style="margin-top:16px;padding:16px;background:#E3F2FD;border-radius:10px;">
+            <strong style="color:#1565C0;font-size:1.1rem;">💳 刷卡建議</strong><br>
+            <span style="font-size:0.95rem;">
+                消費 $${bestPrice}，建議使用 <strong>${bestCC.bank} ${bestCC.cardName}</strong> (${bestCC.cashbackRate}回饋)，
+                可再省 <strong style="color:var(--mcd-green);">$${ccSavings}</strong>
+            </span>
+            <div style="margin-top:8px;font-size:0.85rem;color:#666;">
+                其他推薦：${creditCardData.filter(c => c.id !== bestCC.id).sort((a,b) => parseFloat(b.cashbackRate) - parseFloat(a.cashbackRate)).slice(0,3).map(c => `${c.bank}${c.cardName}(${c.cashbackRate})`).join('、')}
+            </div>
+        </div>
+    </div>`;
+
+    document.getElementById('quickPickResult').innerHTML = html;
+    document.getElementById('quickPickResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
 
