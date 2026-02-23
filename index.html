@@ -588,6 +588,7 @@
     <button class="tab-btn" onclick="switchTab('optimizer')">🧮 最佳方案</button>
     <button class="tab-btn" onclick="switchTab('creditcard')">💳 信用卡優惠</button>
     <button class="tab-btn" onclick="switchTab('quickpick')">🍽️ 我想吃</button>
+    <button class="tab-btn" onclick="switchTab('alldata')">🗂️ 資料庫總表</button>
 </div>
 
 <div class="container">
@@ -724,260 +725,47 @@
         <div id="quickPickResult"></div>
     </div>
 
+    <!-- ========== TAB 7: All Data Table ========== -->
+    <div id="tab-alldata" class="tab-content">
+        <div class="section-title">🗂️ 資料庫總表</div>
+        <p style="margin-bottom:12px;color:#666;">列出 <code>menu_data.js</code> 中所有品項。<span style="background:#E8F5E9;color:#264F36;padding:2px 8px;border-radius:6px;font-size:0.8rem;margin-left:4px;">✅ OCR已驗證</span> 表示有截圖為據；<span style="background:#FFF8E1;color:#E65100;padding:2px 8px;border-radius:6px;font-size:0.8rem;margin-left:4px;">⚠️ 未驗證</span> 價格請以官方App確認。</p>
+        <input type="text" class="search-input" id="allDataSearch" placeholder="🔍 搜尋品名或分類..." oninput="filterAllData()">
+        <div class="filter-bar" id="allDataFilterBar"></div>
+        <div class="card">
+            <div style="overflow-x:auto;">
+                <table class="price-table" id="allDataTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>類型</th>
+                            <th>品名</th>
+                            <th>分類</th>
+                            <th>單點／標價</th>
+                            <th>套餐價</th>
+                            <th>資料狀態</th>
+                            <th>備註</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allDataBody"></tbody>
+                </table>
+            </div>
+            <div id="allDataCount" style="text-align:right;font-size:0.82rem;color:#999;padding-top:10px;"></div>
+        </div>
+    </div>
+
 </div>
 
 <div class="disclaimer">
-    ⚠️ 價格資料僅供參考，實際價格以台灣麥當勞門市公告為準。<br>
-    價格可能因地區、時段有所不同。資料更新時間：2025年2月 (根據公開資訊整理)<br>
-    建議點餐前至 <a href="https://www.mcdonalds.com/tw/zh-tw.html" target="_blank">麥當勞官網</a> 或 App 確認最新價格。
+    ⚠️ 價格資料來源：2026-02-23 門市 App 實際截圖 OCR，標記【未驗證】者請以官方 App 確認。<br>
+    價格可能因地區、時段有所不同。建議點餐前至 <a href="https://www.mcdonalds.com/tw/zh-tw.html" target="_blank">麥當勞官網</a> 或 App 確認最新價格。
 </div>
 
+<!-- 價格資料庫（由 menu_data.js 獨立管理）-->
+<script src="menu_data.js"></script>
 <script>
 // =====================================================
-// McDonald's Taiwan Price Database
-// =====================================================
-const menuData = {
-    mains: [
-        // === 經典牛肉 ===
-        { id: 'm01', name: '大麥克', category: '經典牛肉', single: 75, combo: 135, cal: 550, desc: '雙層牛肉、特製醬', hot: true },
-        { id: 'm02', name: '雙層牛肉吉事堡', category: '經典牛肉', single: 62, combo: 119, cal: 450, desc: '雙層牛肉+起司' },
-        { id: 'm03', name: '吉事漢堡', category: '經典牛肉', single: 42, combo: 99, cal: 301, desc: '經典單層牛肉堡' },
-        { id: 'm04', name: '麥克雙牛堡', category: '經典牛肉', single: 89, combo: 149, cal: 590, desc: '雙層厚牛肉' },
-        { id: 'm05', name: '大麥克BLT', category: '經典牛肉', single: 89, combo: 149, cal: 610, desc: '大麥克+培根生菜番茄', hot: true },
-        { id: 'm06', name: '安格斯黑牛堡', category: '安格斯', single: 109, combo: 169, cal: 620, desc: '100%安格斯黑牛肉' },
-        { id: 'm07', name: '蕈菇安格斯黑牛堡', category: '安格斯', single: 119, combo: 179, cal: 650, desc: '蕈菇醬+安格斯牛肉' },
-        { id: 'm08', name: '培根安格斯黑牛堡', category: '安格斯', single: 119, combo: 179, cal: 670, desc: '培根+安格斯牛肉' },
-        // === 雞肉 ===
-        { id: 'm10', name: '麥香雞', category: '超值雞肉', single: 49, combo: 99, cal: 400, desc: '經典雞肉堡', hot: true },
-        { id: 'm11', name: '勁辣雞腿堡', category: '雞肉堡', single: 82, combo: 142, cal: 510, desc: '辣味雞腿排' },
-        { id: 'm12', name: '嫩煎雞腿堡', category: '雞肉堡', single: 82, combo: 142, cal: 490, desc: '嫩煎雞腿排' },
-        { id: 'm13', name: 'BLT辣脆雞腿堡', category: '雞肉堡', single: 89, combo: 149, cal: 570, desc: '辣脆雞腿+培根' },
-        { id: 'm14', name: 'BLT嫩煎雞腿堡', category: '雞肉堡', single: 89, combo: 149, cal: 550, desc: '嫩煎雞腿+培根' },
-        { id: 'm15', name: '麥克雞塊(6塊)', category: '雞塊', single: 69, combo: 129, cal: 280, desc: '6塊麥克雞塊' },
-        { id: 'm16', name: '麥克雞塊(10塊)', category: '雞塊', single: 109, combo: 169, cal: 467, desc: '10塊麥克雞塊' },
-        { id: 'm17', name: '麥脆雞腿(2塊)', category: '麥脆雞', single: 79, combo: 139, cal: 420, desc: '原味炸雞腿' },
-        { id: 'm18', name: '勁辣香雞翅(2塊)', category: '麥脆雞', single: 62, combo: 119, cal: 290, desc: '辣味雞翅' },
-        { id: 'm19', name: '麥脆雞翅(2塊)', category: '麥脆雞', single: 62, combo: 119, cal: 270, desc: '原味雞翅' },
-        // === 魚 ===
-        { id: 'm20', name: '麥香魚', category: '海鮮', single: 62, combo: 119, cal: 390, desc: '鱈魚排+塔塔醬' },
-        // === 豬肉 ===
-        { id: 'm21', name: '豬肉滿福堡', category: '超值早餐', single: 52, combo: 99, cal: 370, desc: '豬肉+蛋(早餐)' },
-        { id: 'm22', name: '豬肉滿福堡加蛋', category: '超值早餐', single: 62, combo: 109, cal: 450, desc: '豬肉+蛋+起司(早餐)' },
-        { id: 'm23', name: '滿福堡', category: '超值早餐', single: 42, combo: 89, cal: 290, desc: '起司+蛋(早餐)' },
-    ],
-    sides: [
-        { id: 's01', name: '小薯條', category: '薯條', price: 33, cal: 230, size: 'S' },
-        { id: 's02', name: '中薯條', category: '薯條', price: 48, cal: 340, size: 'M', comboDefault: true },
-        { id: 's03', name: '大薯條', category: '薯條', price: 63, cal: 490, size: 'L' },
-        { id: 's04', name: '薯餅', category: '點心', price: 32, cal: 150 },
-        { id: 's05', name: '麥克雞塊(4塊)', category: '點心', price: 49, cal: 186 },
-        { id: 's06', name: '勁辣香雞翅(2塊)', category: '點心', price: 62, cal: 290 },
-        { id: 's07', name: '蘋果片', category: '輕食', price: 25, cal: 15 },
-        { id: 's08', name: '玉米杯', category: '配餐', price: 39, cal: 90 },
-        { id: 's09', name: '沙拉-凱薩', category: '沙拉', price: 79, cal: 120 },
-        { id: 's10', name: '薯條買一送一(優惠)', category: '薯條', price: 63, cal: 490, note: '大薯買一送一時' },
-    ],
-    drinks: [
-        { id: 'd01', name: '可口可樂(小)', category: '碳酸飲料', price: 25, cal: 140, size: 'S' },
-        { id: 'd02', name: '可口可樂(中)', category: '碳酸飲料', price: 35, cal: 210, size: 'M', comboDefault: true },
-        { id: 'd03', name: '可口可樂(大)', category: '碳酸飲料', price: 45, cal: 290, size: 'L' },
-        { id: 'd04', name: '雪碧(小)', category: '碳酸飲料', price: 25, cal: 130, size: 'S' },
-        { id: 'd05', name: '雪碧(中)', category: '碳酸飲料', price: 35, cal: 200, size: 'M' },
-        { id: 'd06', name: '雪碧(大)', category: '碳酸飲料', price: 45, cal: 280, size: 'L' },
-        { id: 'd07', name: '冰紅茶(小)', category: '茶飲', price: 25, cal: 60, size: 'S' },
-        { id: 'd08', name: '冰紅茶(中)', category: '茶飲', price: 35, cal: 90, size: 'M' },
-        { id: 'd09', name: '冰紅茶(大)', category: '茶飲', price: 45, cal: 130, size: 'L' },
-        { id: 'd10', name: '冰綠茶(中)', category: '茶飲', price: 35, cal: 50, size: 'M' },
-        { id: 'd11', name: '冰綠茶(大)', category: '茶飲', price: 45, cal: 70, size: 'L' },
-        { id: 'd12', name: '奶茶(中)', category: '奶茶', price: 42, cal: 150, size: 'M' },
-        { id: 'd13', name: '奶茶(大)', category: '奶茶', price: 52, cal: 210, size: 'L' },
-        { id: 'd14', name: '熱經典美式咖啡(中)', category: '咖啡', price: 39, cal: 10, size: 'M' },
-        { id: 'd15', name: '熱經典美式咖啡(大)', category: '咖啡', price: 49, cal: 15, size: 'L' },
-        { id: 'd16', name: '冰經典美式咖啡(中)', category: '咖啡', price: 39, cal: 10, size: 'M' },
-        { id: 'd17', name: '冰經典美式咖啡(大)', category: '咖啡', price: 49, cal: 15, size: 'L' },
-        { id: 'd18', name: '熱拿鐵(中)', category: '咖啡', price: 55, cal: 150, size: 'M' },
-        { id: 'd19', name: '熱拿鐵(大)', category: '咖啡', price: 65, cal: 200, size: 'L' },
-        { id: 'd20', name: '冰拿鐵(中)', category: '咖啡', price: 55, cal: 120, size: 'M' },
-        { id: 'd21', name: '冰拿鐵(大)', category: '咖啡', price: 65, cal: 160, size: 'L' },
-        { id: 'd22', name: '柳橙汁(中)', category: '果汁', price: 52, cal: 180, size: 'M' },
-        { id: 'd23', name: '四季春茶(中)', category: '茶飲', price: 35, cal: 50, size: 'M' },
-        { id: 'd24', name: '玉米濃湯', category: '湯品', price: 35, cal: 90 },
-        { id: 'd25', name: '鮮乳(小)', category: '乳品', price: 39, cal: 120, size: 'S' },
-    ],
-    desserts: [
-        { id: 'x01', name: '蛋捲冰淇淋', category: '冰品', price: 18, cal: 170 },
-        { id: 'x02', name: '冰炫風-OREO', category: '冰品', price: 55, cal: 360 },
-        { id: 'x03', name: '冰炫風-巧克力', category: '冰品', price: 55, cal: 350 },
-        { id: 'x04', name: '聖代-草莓', category: '冰品', price: 39, cal: 290 },
-        { id: 'x05', name: '聖代-巧克力', category: '冰品', price: 39, cal: 310 },
-        { id: 'x06', name: '鬆餅(2塊)', category: '點心', price: 39, cal: 260 },
-        { id: 'x07', name: '蘋果派', category: '點心', price: 32, cal: 253 },
-        { id: 'x08', name: '勁辣香雞翅(3塊)', category: '點心', price: 89, cal: 435 },
-    ]
-};
-
-// =====================================================
-// Promotions / Deals Database
-// =====================================================
-const promoData = [
-    {
-        id: 'p01',
-        name: '甜心卡 - 買A送B (App限定)',
-        type: '甜心卡',
-        color: 'bg-red',
-        description: '透過麥當勞App甜心卡，指定A區商品搭配B區商品，B區商品享第二件半價或特價優惠。',
-        details: [
-            'A區：主餐類 (大麥克、勁辣雞腿堡、麥克雞塊等)',
-            'B區：配餐或飲料 (冰炫風、薯條、飲料等)',
-            '買A區任一商品，B區商品享半價',
-            '需使用麥當勞 App 出示甜心卡',
-        ],
-        savings: '配餐飲料最高省50%',
-        calcFn: (items) => {
-            // For each A-item, one B-item at half price
-            return { applicable: true, note: 'B區商品半價' };
-        }
-    },
-    {
-        id: 'p02',
-        name: '1+1=50元',
-        type: '超值優惠',
-        color: 'bg-yellow',
-        description: '指定商品任選2件只要50元！超值省錢首選。',
-        details: [
-            '可選：小薯、蛋捲冰淇淋、小杯飲料、蘋果派等',
-            '任選2件只要$50',
-            '單點原價合計約$50~$68，最多省$18',
-            '全天供應',
-        ],
-        savings: '任選2件$50',
-        combo_items: ['小薯條', '蛋捲冰淇淋', '蘋果派', '可口可樂(小)', '冰紅茶(小)', '雪碧(小)', '四季春茶(小)'],
-        combo_price: 50
-    },
-    {
-        id: 'p03',
-        name: '超值全餐',
-        type: '套餐',
-        color: 'bg-green',
-        description: '主餐+中薯+中飲，一次搞定最方便。比單點三樣分開買更划算！',
-        details: [
-            '套餐 = 主餐 + 中薯($48) + 中飲($35)',
-            '套餐價比三樣單點合計便宜 $7~$18',
-            '可加價升級大薯(+$15)、大飲(+$10)',
-            '部分主餐套餐差價更大，省更多',
-        ],
-        savings: '比單點省$7~$18'
-    },
-    {
-        id: 'p04',
-        name: '歡樂送優惠 (外送)',
-        type: '外送',
-        color: 'bg-blue',
-        description: '麥當勞歡樂送專屬優惠，滿額折扣或免外送費。',
-        details: [
-            '外送低消$70起',
-            '不定期推出滿額折扣碼',
-            '部分時段免外送費',
-            'App下單享專屬優惠',
-        ],
-        savings: '依活動而定'
-    },
-    {
-        id: 'p05',
-        name: '麥當勞 App 隨享券',
-        type: 'App優惠',
-        color: 'bg-purple',
-        description: 'App 內不定期發放電子優惠券，各種組合都有折扣。',
-        details: [
-            '大麥克買一送一 (不定期)',
-            '薯條買一送一 (不定期)',
-            '套餐折$10~$30 優惠券',
-            '限時特價組合',
-            '生日當月驚喜優惠',
-        ],
-        savings: '最高買一送一(省50%)'
-    },
-    {
-        id: 'p06',
-        name: '早安優惠 (早餐時段)',
-        type: '時段優惠',
-        color: 'bg-yellow',
-        description: '早餐時段限定優惠組合，開啟美好的一天。',
-        details: [
-            '早餐供應時間：05:00~10:30',
-            '豬肉滿福堡加蛋套餐 $109',
-            '滿福堡套餐 $89',
-            '鬆餅早餐套餐 $79',
-            '部分門市有早餐專屬優惠',
-        ],
-        savings: '早餐套餐最低$79起'
-    },
-    {
-        id: 'p07',
-        name: '快樂兒童餐',
-        type: '兒童優惠',
-        color: 'bg-red',
-        description: '給小朋友的超值組合，含主餐+配餐+飲料+玩具！',
-        details: [
-            '主餐(4塊雞塊/吉事漢堡) + 配餐 + 飲料 + 玩具',
-            '價格約 $89~$109',
-            '附贈當期限定玩具',
-            '兒童份量適中',
-        ],
-        savings: '含玩具超值'
-    },
-    {
-        id: 'p08',
-        name: '分享盒 / 歡聚餐',
-        type: '多人優惠',
-        color: 'bg-green',
-        description: '適合多人分享的超值組合，人均更便宜！',
-        details: [
-            '麥克雞塊分享盒(20塊) 約$199',
-            '歡聚餐(4人份) 約$499~$599',
-            '含多款主餐+薯條+飲料',
-            '人均約$125~$150，比個別套餐省$20+',
-        ],
-        savings: '人均省$20+'
-    },
-    {
-        id: 'p09',
-        name: '振興/行動支付回饋',
-        type: '支付優惠',
-        color: 'bg-blue',
-        description: '使用特定行動支付可享額外回饋。',
-        details: [
-            'LINE Pay 不定期回饋',
-            '街口支付 / Pi錢包優惠',
-            '信用卡回饋 (依各銀行活動)',
-            '最高可達10%回饋',
-        ],
-        savings: '最高10%回饋'
-    },
-    {
-        id: 'p10',
-        name: '銅板輕鬆點',
-        type: '超值優惠',
-        color: 'bg-yellow',
-        description: '指定商品銅板價，小資族最愛！',
-        details: [
-            '蛋捲冰淇淋 $18',
-            '小杯飲料 $25',
-            '蘋果派 $32',
-            '薯餅 $32',
-        ],
-        savings: '最低$18起'
-    }
-];
-
-// =====================================================
-// Combo default composition
-// =====================================================
-const COMBO_SIDE_PRICE = 48;  // 中薯 in combo
-const COMBO_DRINK_PRICE = 35; // 中飲 in combo
-
-// 1+1=50 eligible items
-const ONEONE_ITEMS = ['小薯條','蛋捲冰淇淋','蘋果派','可口可樂(小)','冰紅茶(小)','雪碧(小)','薯餅'];
+// 資料庫已移至 menu_data.js（由外部 <script> 載入）
+// menuData、promoData、COMBO_NOTE、ONEONE_ITEMS 均定義於 menu_data.js
 
 // =====================================================
 // App State
@@ -996,7 +784,106 @@ document.addEventListener('DOMContentLoaded', () => {
     renderOptimizer();
     renderCreditCardTab();
     renderQuickPickTab();
+    renderAllDataTable();
 });
+
+// =====================================================
+// TAB 7: 資料庫總表
+// =====================================================
+let activeAllDataType = 'all';
+
+function renderAllDataTable() {
+    // 建立類型篩選按鈕
+    const filterBar = document.getElementById('allDataFilterBar');
+    const types = [
+        { key: 'all',     label: '全部' },
+        { key: 'mains',   label: '🍔 主餐' },
+        { key: 'sides',   label: '🍟 配餐' },
+        { key: 'drinks',  label: '🥤 飲料' },
+        { key: 'desserts',label: '🍰 甜品' },
+    ];
+    filterBar.innerHTML = types.map(t =>
+        `<button class="filter-btn${t.key === 'all' ? ' active' : ''}" onclick="setAllDataType('${t.key}')">${t.label}</button>`
+    ).join('');
+    renderAllDataRows();
+}
+
+function setAllDataType(type) {
+    activeAllDataType = type;
+    document.querySelectorAll('#allDataFilterBar .filter-btn').forEach(b => {
+        b.classList.toggle('active', b.textContent.trim().endsWith(type) || (type === 'all' && b.textContent === '全部'));
+    });
+    // 重設 active 更簡單的方式
+    document.querySelectorAll('#allDataFilterBar .filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    renderAllDataRows();
+}
+
+function filterAllData() {
+    renderAllDataRows();
+}
+
+function renderAllDataRows() {
+    const tbody = document.getElementById('allDataBody');
+    const search = (document.getElementById('allDataSearch').value || '').toLowerCase();
+    const sourceLabel = { ocr: '✅ OCR已驗證', unverified: '⚠️ 未驗證' };
+    const sourceBg    = { ocr: '#E8F5E9', unverified: '#FFF8E1' };
+    const sourceColor = { ocr: '#264F36',  unverified: '#E65100' };
+    const typeLabel   = { mains: '🍔 主餐', sides: '🍟 配餐', drinks: '🥤 飲料', desserts: '🍰 甜品' };
+
+    // 所有品項打平
+    const allItems = [
+        ...menuData.mains.map(i => ({...i, _type: 'mains'})),
+        ...menuData.sides.map(i => ({...i, _type: 'sides'})),
+        ...menuData.drinks.map(i => ({...i, _type: 'drinks'})),
+        ...menuData.desserts.map(i => ({...i, _type: 'desserts'})),
+    ];
+
+    let rows = allItems.filter(item => {
+        if (activeAllDataType !== 'all' && item._type !== activeAllDataType) return false;
+        if (search && !item.name.toLowerCase().includes(search) && !item.category.toLowerCase().includes(search)) return false;
+        return true;
+    });
+
+    let idx = 0;
+    let html = '';
+    rows.forEach(item => {
+        idx++;
+        const src  = item.source || 'unverified';
+        const srcLbl  = sourceLabel[src] || src;
+        const srcBg   = sourceBg[src]  || '#f5f5f5';
+        const srcClr  = sourceColor[src] || '#666';
+
+        // 主餐用 single/combo，其他用 price
+        const singleVal = item.single != null ? `<span class="price-highlight">NT$${item.single}</span>` :
+                          item.price  != null ? `<span class="price-highlight">NT$${item.price}</span>`  : '<span style="color:#bbb">—</span>';
+        const comboVal  = item.combo  != null ? `<span class="price-highlight">NT$${item.combo}</span>`  : '<span style="color:#bbb">—</span>';
+
+        // 備註：現無供應 優先顯示
+        let noteHtml = '';
+        if (item.note && item.note.includes('現無供應')) {
+            noteHtml = '<span style="background:#FFEBEE;color:#c62828;padding:1px 6px;border-radius:5px;font-size:0.78rem;">現無供應</span>';
+        } else if (item.note) {
+            noteHtml = `<span style="color:#666;font-size:0.85rem;">${item.note}</span>`;
+        }
+        if (item.hot) noteHtml += ' <span class="tag tag-hot">人氣</span>';
+
+        const rowBg = idx % 2 === 0 ? '' : 'background:#FAFAFA;';
+        html += `<tr style="${rowBg}">
+            <td style="color:#aaa;font-size:0.8rem;">${idx}</td>
+            <td style="font-size:0.82rem;">${typeLabel[item._type]}</td>
+            <td><strong>${item.name}</strong></td>
+            <td style="font-size:0.85rem;color:#555;">${item.category}</td>
+            <td>${singleVal}</td>
+            <td>${comboVal}</td>
+            <td><span style="background:${srcBg};color:${srcClr};padding:2px 8px;border-radius:6px;font-size:0.78rem;font-weight:600;white-space:nowrap;">${srcLbl}</span></td>
+            <td>${noteHtml}</td>
+        </tr>`;
+    });
+
+    tbody.innerHTML = html || `<tr><td colspan="8" style="text-align:center;color:#999;padding:24px;">沒有符合的品項</td></tr>`;
+    document.getElementById('allDataCount').textContent = `共 ${rows.length} 筆 / 總計 ${allItems.length} 筆`;
+}
 
 // =====================================================
 // Tab Switching

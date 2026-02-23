@@ -1,1 +1,5 @@
 .DS_Store
+# 菜單截圖資料夾（含原始圖片，不同步 GitHub）
+# 真實價格已透過 OCR 整理至 menu_data.js
+# 資料夾內 PRICE_TABLE.md 為本地參考文件
+menu_Photo_20260223/
