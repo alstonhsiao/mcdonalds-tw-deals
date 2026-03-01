@@ -1,0 +1,10 @@
+{
+  "name": "mcdonalds-tw-deals-engine",
+  "version": "2.0.0",
+  "private": true,
+  "description": "台灣麥當勞資料驅動點餐建議網站",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "validate:data": "node scripts/validate-data.js"
+  }
+}

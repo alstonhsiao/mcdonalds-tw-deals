@@ -1,0 +1,11 @@
+{
+  "lastUpdated": "2026-03-02",
+  "menuVersion": "2026-03",
+  "nutritionVersion": "2026-03",
+  "promoVersion": "2026-03",
+  "files": {
+    "menu": "./menu/2026-03.json",
+    "nutrition": "./nutrition/2026-03.json",
+    "promos": "./promos/2026-03.json"
+  }
+}

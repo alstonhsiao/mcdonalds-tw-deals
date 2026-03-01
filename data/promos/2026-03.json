@@ -1,0 +1,80 @@
+{
+  "version": "2026-03",
+  "generatedAt": "2026-03-02",
+  "rules": [
+    {
+      "id": "combo-meal",
+      "name": "超值全餐",
+      "type": "combo_bundle",
+      "enabled": true,
+      "startAt": "2026-01-01",
+      "endAt": "2026-12-31",
+      "stackable": true,
+      "priority": 20,
+      "conditions": {
+        "mainType": "main",
+        "allowedMealPeriods": ["all_day", "breakfast"]
+      },
+      "reward": {
+        "sideBasePrice": 37,
+        "drinkBasePrice": 33,
+        "minSavings": 1
+      }
+    },
+    {
+      "id": "sweetheart-card",
+      "name": "甜心卡 A+B 半價",
+      "type": "pair_discount",
+      "enabled": true,
+      "startAt": "2026-03-01",
+      "endAt": "2026-12-31",
+      "stackable": true,
+      "priority": 40,
+      "conditions": {
+        "aTag": "sweetheart_a",
+        "bTag": "sweetheart_b"
+      },
+      "reward": {
+        "discount": "half",
+        "round": "nearest"
+      }
+    },
+    {
+      "id": "one-plus-one-50",
+      "name": "1+1=50",
+      "type": "fixed_bundle",
+      "enabled": true,
+      "startAt": "2026-03-01",
+      "endAt": "2026-12-31",
+      "stackable": true,
+      "priority": 60,
+      "conditions": {
+        "tag": "one_plus_one"
+      },
+      "reward": {
+        "bundleSize": 2,
+        "bundlePrice": 50
+      }
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-sweetheart",
+      "title": "甜心卡",
+      "summary": "主餐搭 B 區品項半價",
+      "updatedAt": "2026-03-01"
+    },
+    {
+      "id": "card-oneplusone",
+      "title": "1+1=50",
+      "summary": "指定品項兩件 50 元",
+      "updatedAt": "2026-03-01"
+    },
+    {
+      "id": "card-breakfast",
+      "title": "早餐時段",
+      "summary": "早餐供應時段 05:00-10:30，僅早餐品項可購買",
+      "updatedAt": "2026-03-01"
+    }
+  ]
+}
